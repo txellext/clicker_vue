@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="counter">
     <h1>{{ msg }}</h1>
     <p>
       Let's try our awesome clicker
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Counter',
+  name: 'CounterClicks',
   props: {
     msg: String
   }
@@ -20,7 +20,7 @@ export default {
 
 
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 
 </style>

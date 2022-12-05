@@ -4,16 +4,26 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
-<p> Contador: {{num_clicks}}</p>
-<button>Clicke Me</button>
+<p> Counter: {{num_clicks}}</p>
+<p>Earnings: {{earnings}}</p>
+<button v-on:click="sumClicks()">Clicke Me</button>
 
 </template>
 
 <script>
 export default {
+  name: "App",
+  props: {},
   data() {
     return{
-      num_clicks: 0
+      num_clicks: 0,
+      earnings: null
+    };
+  },
+  computed: {},
+  methods: {
+    sumClicks() {
+      return num_clicks =+ 1
     }
   }
 }
