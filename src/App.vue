@@ -4,10 +4,19 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
+<p> Contador: {{num_clicks}}</p>
+<button>Clicke Me</button>
+
 </template>
 
 <script>
-
+export default {
+  data() {
+    return{
+      num_clicks: 0
+    }
+  }
+}
 </script>
 
 <style>
@@ -31,4 +40,5 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
