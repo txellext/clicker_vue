@@ -4,11 +4,15 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
-  <p>Counter: {{ num_clicks }}</p>
-  <p>Earnings: {{ earnings }}</p>
-  <button v-on:click="sumClicks()">Clicke Me</button>
-  <button v-on:click="restClicks()">Resta Clicks</button>
-  <p v-on:click="improvement()">Buy</p>
+  <p>Counter: {{ numClicks }}</p>
+  <button v-on:click="sumaClicks()">Clicke Me</button>
+  <button v-on:click="restaClicks()">Resta Clicks</button>
+  <div>
+    <h3> Shop </h3>
+    <ul v-if="numClicks > 20"  v-on:click="improvement1()"> {{ shop[0].name}}</ul>
+    <ul v-if="numClicks > 40"  v-on:click="improvement2()"> {{ shop[1].name}}</ul>
+  </div>
+ 
 </template>
 
 <script>
@@ -17,30 +21,45 @@ export default {
   props: {},
   data() {
     return {
-      num_clicks: 0,
+      numClicks: 0,
       earnings: null,
+      date: null,
+      seconds: null,
       shop: [{
-        name: "mejora 1",
+        name: "Improvement 1",
         level: 1,
         initialCost: 4
+      },
+      {
+        name: "Improvement 2",
+        level: 2,
+        initialCost: 10
       }
     ],
     };
   },
   computed: {},
   methods: {
-    sumClicks() {
-      // return this.num_clicks = this.num_clicks + 1
-      return this.num_clicks++;
+    sumaClicks() {
+      // return this.numClicks = this.num_clicks + 1
+      return this.numClicks++;
     },
-    restClicks() {
+    restaClicks() {
       // console.log("test")
-      return this.num_clicks--;
+      return this.numClicks--;
     },
-    improvement() {
-      
-      console.log(this.shop[0])
-      
+    improvement1() {
+      this.numClicks = this.numClicks - this.shop[0].initialCost; // Substract clicks of initialCost 
+      this.shop[0].initialCost = this.shop[0].initialCost * 2; // Multiply by 2 initialCost
+      // Add 1 click every 30 seconds
+      setInterval(this.sumaClicks, 30000) // Execute sumaClicks() every 30 seconds
+      return this.numClicks 
+    },
+    improvement2() {
+      this.numClicks = this.numClicks - this.shop[1].initialCost; // Substract clicks of initialCost 
+      this.shop[1].initialCost = this.shop[1].initialCost * 2; // Multiply by 2 initialCost
+      console.log(this.shop[1].initialCost)
+      return this.numClicks 
     }
   },
 };
