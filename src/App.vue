@@ -51,14 +51,15 @@ export default {
     improvement1() {
       this.numClicks = this.numClicks - this.shop[0].initialCost; // Substract clicks of initialCost 
       this.shop[0].initialCost = this.shop[0].initialCost * 2; // Multiply by 2 initialCost
-      // Add 1 click every 30 seconds
+      // Autoclick every 30 seconds
       setInterval(this.sumaClicks, 30000) // Execute sumaClicks() every 30 seconds
       return this.numClicks 
     },
     improvement2() {
       this.numClicks = this.numClicks - this.shop[1].initialCost; // Substract clicks of initialCost 
       this.shop[1].initialCost = this.shop[1].initialCost * 2; // Multiply by 2 initialCost
-      console.log(this.shop[1].initialCost)
+      // Autoclick every second
+      setInterval(this.sumaClicks, 1000) // Execute sumaClicks() every second
       return this.numClicks 
     }
   },

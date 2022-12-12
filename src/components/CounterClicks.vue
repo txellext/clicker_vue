@@ -2,7 +2,7 @@
   <div class="counter">
     <h1>{{ msg }}</h1>
     <p>
-      Let's try our awesome clicker
+      Let's try our bacteriophage clicker
     </p>
   </div>
 </template>
